@@ -5,13 +5,14 @@ import viteLogo from './assets/vite.svg'
 import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import './App.css'
+import FacultyGrid from './components/FacultyGrid'
 
 function App() {
   const [search, setSearch] = useState("");
   const faculty = [
-  { name: "Sarah", expertise: "Machine Learning" },
-  { name: "James", expertise: "Robotics" },
-  { name: "Alex", expertise: "Cybersecurity" }
+  { name: "Sarah", title: "Machine Learning", email: "email", university: "no name uni", tags:["tag1"]},
+  { name: "James", title: "Robotics", email: "email", university: "no name uni", tags:["tag1"] },
+  { name: "Alex", title: "Cybersecurity", email: "email", university: "no name uni", tags:["tag1"]},
 ];
   const searchBarResults = faculty.filter(person => person["name"].toLowerCase().includes(search.toLowerCase()));
  
@@ -19,6 +20,7 @@ function App() {
   <>
   <Header></Header>
   <SearchBar search={search} setSearch={setSearch}></SearchBar>
+  <FacultyGrid searchBarResults={searchBarResults}></FacultyGrid>
   </>
   )
 }
