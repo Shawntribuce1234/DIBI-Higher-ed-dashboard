@@ -6,6 +6,7 @@ import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import './App.css'
 import FacultyGrid from './components/FacultyGrid'
+import FilterSection from './components/FilterSection'
 
 function App() {
   const [search, setSearch] = useState("");
@@ -20,6 +21,7 @@ function App() {
   <>
   <Header></Header>
   <SearchBar search={search} setSearch={setSearch}></SearchBar>
+  <FilterSection faculty={faculty}></FilterSection>
   <FacultyGrid searchBarResults={searchBarResults}></FacultyGrid>
   </>
   )
