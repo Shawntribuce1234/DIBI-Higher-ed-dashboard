@@ -1,15 +1,15 @@
 import FilterSelection from "./FilterSelection"
-
-function FilterSection({faculty}) {
-    const universities = [...new Set(faculty.map(person => person.university).filter(university => university !== undefined))]
-    const expertise = [...new Set(faculty.flatMap(person => person.expertise).filter(expertise => expertise !== undefined))]
-    const dibi_pilar = [...new Set(faculty.flatMap(person => person.dibi_pilar).filter(dibi_pilar => dibi_pilar !== undefined))]
-    const city = [...new Set(faculty.map(person => person.city).filter(city => city !== undefined))]
-    const tags = [...new Set(faculty.flatMap(person => person.tags).filter(tags => tags !== undefined))]
+import './FilterSection.CSS'
+function FilterSection({researchers}) {
+    const universities = [...new Set(researchers.map(person => person.University).filter(university => university != null))]
+    const expertise = [...new Set(researchers.flatMap(person => person.Expertise_categories).filter(expertise => expertise != null))]
+    const dibi_pilar = [...new Set(researchers.flatMap(person => person.Dibi_Pillar).filter(dibi_pilar => dibi_pilar != null))]
+    const city = [...new Set(researchers.map(person => person.City).filter(city => city != null))]
+    const tags = [...new Set(researchers.flatMap(person => (person.Other_tags ?? "").split(",").map(tag => tag.trim()).filter(Boolean)))]
 
 
     return (
-        <div className="m-5">
+        <div className="m-5 filter-container">
             <div className="row" >
                 <div className="col">
                     <FilterSelection label={"universities"} options={universities}></FilterSelection>
