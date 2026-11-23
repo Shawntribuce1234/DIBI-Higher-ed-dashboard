@@ -9,11 +9,12 @@ import FacultyGrid from './components/FacultyGrid'
 import FilterSection from './components/FilterSection'
 import { useEffect } from 'react'
 
+
 function App() {
   
   
   const [researchers, setResearchers] = useState([]);
-  useEffect(()=>{async function getResearchers(){const response = await fetch('http://localhost:3000/researchers'); 
+  useEffect(()=>{async function getResearchers(){const response = await fetch("https://DIBI-AZURE-BACKEND.azurewebsites.net/api/researchers")); 
                                                   const researcher = await response.json();
                                                 setResearchers(researcher)}getResearchers()}, []);
   const [search, setSearch] = useState("");
