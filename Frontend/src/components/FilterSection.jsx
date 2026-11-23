@@ -1,5 +1,5 @@
 import FilterSelection from "./FilterSelection"
-import './FilterSection.CSS'
+import './FilterSection.css'
 function FilterSection({researchers}) {
     const universities = [...new Set(researchers.map(person => person.University).filter(university => university != null))]
     const expertise = [...new Set(researchers.flatMap(person => person.Expertise_categories).filter(expertise => expertise != null))]
