@@ -14,9 +14,18 @@ function App() {
   
   
   const [researchers, setResearchers] = useState([]);
-  useEffect(()=>{async function getResearchers(){const response = await fetch("https://DIBI-AZURE-BACKEND.azurewebsites.net/api/researchers")); 
-                                                  const researcher = await response.json();
-                                                setResearchers(researcher)}getResearchers()}, []);
+  useEffect(() => {
+  async function getResearchers() {
+    const response = await fetch(
+      "https://dibi-azure-backend-hsbrbcfjc9gxcyca.westus2-01.azurewebsites.net/api/researchers"
+    );
+
+    const researcher = await response.json();
+    setResearchers(researcher);
+  }
+
+  getResearchers();
+}, []);
   const [search, setSearch] = useState("");
   const searchBarResults = researchers.filter(person => person["Name"].toLowerCase().includes(search.toLowerCase()));
   console.log(researchers);
